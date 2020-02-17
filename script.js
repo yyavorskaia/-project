@@ -1,51 +1,88 @@
 'use strict';
 
-/*var BorderWidth = 1;
-let second = 2;
-const pi = 3.14;
+let money = +prompt("Ваш бюджет на месяц?", ""),
+    time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-console.log(4/0);*/
+let appData = {
+    budget: money,
+    timeData: time,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    savings: false
+};
+
+for (let i = 0; i < 2; i++) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt("Во сколько обойдется?", "");
+
+    if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null &&
+        a != "" && b != "" && a.length < 50) {
+        console.log("done");
+
+        appData.expenses[a] = b;
+    } else {
+        console.log("bad result");
+        i--;
+    }
+} 
+
+// WHILE
+
+// let i = 0;
+// while (i < 2) {
+//     let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
+//         b = prompt ("Во сколько обойдется?", "");
+
+//     if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null 
+//     && a != "" && b != "" && a.length < 50) {
+
+//         console.log ("done");
+
+//         appData.expenses[a] = b;
+//     } else {
+//          console.log ("bad result");
+//          i--;
+//     }
+
+//     i++;
+// }
 
 
-/*var cat = { // создаем объект
-  name: 'Кекс', // name — ключ, 'Кекс' — значение
-  age: 5 // Ключ — age, значение — 5
-};*/
+// DO...WHILE
 
-/*console.log(cat.name);
-console.log(cat["name"]);
+// let i = 0;
+// do {
+//     let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
+//         b = prompt ("Во сколько обойдется?", "");
 
-var usersByDay = [812, 1360, 657, 1247];
-console.log(usersByDay[1]); // Выведет 1360*/
+//     if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null 
+//     && a != "" && b != "" && a.length < 50) {
 
+//         console.log ("done");
 
+//         appData.expenses[a] = b;
+//     } else {
+//          console.log ("bad result");
+//          i--;
+//     }
 
-// alert( "Я JavaScript!" );
+//     i++;
+// }
+// while(i < 2);
 
-// let answer = confirm("A you here?");
-// console.log(answer);
+appData.moneyPerDay = appData.budget / 30;
 
-/*let answer = prompt("Есть ли вам 18?");
-console.log(answer);*/
+alert("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");
 
-/*let answer = prompt("Есть ли вам 18?", "Да"); //
-console.log(answer);*/
+if (appData.moneyPerDay < 100) {
+    console.log("Это минимальный уровень достатка!");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Это средний уровень достатка!");
+} else if (appData.moneyPerDay > 2000) {
+    console.log("Это высокий уровень достатка!");
+} else {
+    console.log("Произошла ошибка");
+}
 
-
-// console.log('1' + 'j');
-
-// let answer = +prompt("Есть ли вам 18?");
-// console.log(typeof(answer));
-
-/*let incr = 10,
-    decr = 10;
-
-    console.log(++incr); //11
-    console.log(--decr); //9*/
-
-/*let counter = 0;
-counter++;
-
-alert(counter); // 2, обе строки сделали одно и то же*/
-
-console.log(5 % 2);
+console.log(appData);
