@@ -1,22 +1,28 @@
-let money = prompt("Ваш бюджет на месяц?", " " );
-let time = prompt("Введите дату в формате YYYY-MM-DD", " " );
+// let num = 20;
 
-let appData = {
-  moneyData: money,
-  timeData: time,
-  expenses: {},
-  optionalExpenses: {},
-  income: [],
-  savings: false
-};
+// function showFirstMessage(text) {
+//   alert(text);
+//   // let num = 10;
+//   console.log(num);
+// }
 
-let article = prompt("Введите обязательную статью расходов в этом месяце", " " );
-let cost = prompt("Во сколько обойдется ?", " " );
+// showFirstMessage("Hello word!");
+// console.log(num);
 
-let article1 = prompt("Введите обязательную статью расходов в этом месяце", " " );
-let cost1 = prompt("Во сколько обойдется ?", " " );
+function calc (a, b) {
+  return (a + b);
+}
 
-appData.expenses[article] = cost;
-appData.expenses[article1] = cost1;
+console.log(calc(3,4));
+console.log(calc(8,4));
 
-alert(appData.moneyData / 30);
+
+function retVar() {
+  let num = 50;
+  return num;
+}
+
+let AnotherNum = retVar();
+console.log(AnotherNum);
+  
+ 
